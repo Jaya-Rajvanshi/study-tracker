@@ -6,4 +6,5 @@ def add_subject(name):
 
 add_subject("Python")
 add_subject("DSA")
+add_subject("Maths")
 print(subjects)
