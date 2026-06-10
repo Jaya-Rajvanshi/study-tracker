@@ -1,10 +1,15 @@
-subjects = []
+import json
+import os
 
-def add_subject(name, hours=0):
-    subjects[name] = hours
-    print(f"Added: {name} with {hours} hours")
+DATA_FILE = "data.json"
 
-add_subject("Python", 5)
-add_subject("DSA", 10)
-add_subject("Maths", 4)
-print(subjects)
+def load_data():
+    if os.path.exists(DATA_FILE):
+        with open(DATA_FILE, "r") as f:
+            return json.load(f)
+    return {}
+
+def save_data(data):
+    with open(DATA_FILE, "w") as f:
+        json.dump(data, f, indent=4)
+
