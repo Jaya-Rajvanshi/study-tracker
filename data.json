@@ -5,5 +5,13 @@
             2,
             3
         ]
+    },
+    "DBMS": {
+        "total_hours": 0,
+        "sessions": []
+    },
+    "OS": {
+        "total_hours": 0,
+        "sessions": []
     }
 }
