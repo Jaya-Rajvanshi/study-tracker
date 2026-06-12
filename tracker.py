@@ -32,4 +32,46 @@ def view_progress(data):
         total = info["total_hours"]
         print(f"{subject}: {total} total hours across {sessions} session(s)")
     print("----------------------")
+
+def log_hours(data):
+    if not data:
+        print("No subjects found. Add a subject first")
+        return
+    print("\nYour Subjects:")
+    for subject in data:
+        print(f" - {subject}")    
+    name = input("Enter subject name to log hours: ").strip()
+    if name not in data:
+        print(f"Subject {name} not found.")
+        return
+    try:
+        hours = float(input(f"How many hours did you study '{name}' today? "))
+        data[name]["total_hours"]+= hours
+        data[name]["sessions"].append(hours)
+        save_data(data)
+        print(f"Logged {hours} hours for '{name}'. Total: {data[name]['total_hours']} hours.")
+    except ValueError:
+        print("Please enter a valid number.")
+        
+def delete_subject(data):
+    if not data:
+        print("No subjects found.")
+        return
+    print("\nYour Subjects: ")
+    for subject in data:
+        print(f" - {subject}")
+    name = input("Enter subject name to delete: ").strip()
+    if name not in data:
+        print(f"Subject '{name}' not found.")
+        return
+    confirm = input(f"Are you sure you want to delete '{name}'? (yes/no): ").strip().lower()
+    if confirm == "yes":
+        del data[name]
+        save_data(data)
+        print(f"Subject '{name}' deleted.")
+    else:
+        print("Deletion cancelled")
+        
+
+    
     

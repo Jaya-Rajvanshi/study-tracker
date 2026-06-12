@@ -7,11 +7,9 @@
         ]
     },
     "DBMS": {
-        "total_hours": 0,
-        "sessions": []
-    },
-    "OS": {
-        "total_hours": 0,
-        "sessions": []
+        "total_hours": 3.0,
+        "sessions": [
+            3.0
+        ]
     }
 }
