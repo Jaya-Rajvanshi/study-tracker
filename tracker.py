@@ -72,6 +72,33 @@ def delete_subject(data):
     else:
         print("Deletion cancelled")
         
-
+def main():
+    data = load_data()
+    while True:
+        print("\n===== Study Tracker =====")
+        print("1. Add subject")
+        print("2. Log study hours")
+        print("3. View progress")
+        print("4. Delete subject")
+        print("5. Exit")
+        print("=========================")
+        choice = input("Choose an option (1-5): ").strip()
+        if choice == "1":
+            add_subject(data)
+        elif choice == "2":
+            log_hours(data)
+        elif choice == "3":
+            view_progress(data)
+        elif choice == "4":
+            delete_subject(data)
+        elif choice == "5":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid option. Please choose between 1 and 5.")
+        
+if __name__ == "__main__":
+    main()
+    
     
     
